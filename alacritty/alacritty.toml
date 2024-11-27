@@ -14,19 +14,5 @@ bold = { family = "MesloLGS Nerd Font Mono"}
 italic = { family = "MesloLGS Nerd Font Mono"}
 size = 16.0
 
-[colors.primary]
-background = "#272b30"
-foreground = "#afb4c3"
-
-[colors.normal]
-black = "#272b30"
-red = "#cc6666"
-green = "#bdb968"
-yellow = "#f0c674"
-blue = "#81a2be"
-magenta = "#b08cba"
-cyan = "#7fb2c8"
-white = "#afb4c3"
-
 [selection]
 save_to_clipboard = true
