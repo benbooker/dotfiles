@@ -92,7 +92,7 @@ return {
       end)
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'ts_ls', 'pyright', 'clangd', 'cssls', 'html' },
+        ensure_installed = { 'ts_ls', 'pyright', 'clangd', 'cssls', 'html', 'bashls', 'lua_ls', 'jsonls', 'haskell-language-server' },
         handlers = {
           function(server_name)
             local config = lsp_zero.build_options(server_name)
@@ -107,4 +107,3 @@ return {
     end,
   },
 }
-
