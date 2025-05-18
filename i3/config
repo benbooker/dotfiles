@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -164,10 +164,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -183,8 +183,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+bracketright move workspace to output right
-bindsym $mod+bracketleft move workspace to output left
+bindsym $mod+Ctrl+Shift+h move workspace to output left
+bindsym $mod+Ctrl+Shift+l move workspace to output right
 
 for_window [class=".*"] border pixel 2
 
@@ -198,10 +198,14 @@ bar {
 bindsym $mod+Shift+s exec "flameshot gui"
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.png
+exec_always --no-startup-id feh --bg-scale ~/Pictures/tomb.jpg
 
 # Compositor 
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # Notification Daemon
 exec --no-startup-id dunst
+
+# Unclutter - hide mouse when idle
+exec --no-startup-id unclutter -idle 3
+
