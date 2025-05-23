@@ -92,7 +92,7 @@ return {
       end)
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'ts_ls', 'pyright', 'clangd', 'cssls', 'html', 'bashls', 'lua_ls', 'jsonls', 'haskell-language-server' },
+        ensure_installed = { 'ts_ls', 'pyright', 'clangd', 'cssls', 'html', 'hls' },
         handlers = {
           function(server_name)
             local config = lsp_zero.build_options(server_name)
@@ -101,6 +101,31 @@ return {
           lua_ls = function()
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
+          end,
+        },
+      })
+
+      -- keybind to show diagnostics in a floating window
+      vim.keymap.set("n", "<Space>d", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+
+      -- configure diagnostic display
+      vim.diagnostic.config({
+        virtual_text = false,
+        signs        = true,
+        float        = {
+          border = "single",
+          format = function(diagnostic)
+            local code = diagnostic.code
+                or (diagnostic.user_data
+                  and diagnostic.user_data.lsp
+                  and diagnostic.user_data.lsp.code)
+
+            return string.format(
+              "%s (%s) [%s]",
+              diagnostic.message,
+              diagnostic.source or "LSP",
+              code or "no-code"
+            )
           end,
         },
       })
