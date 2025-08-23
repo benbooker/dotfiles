@@ -49,7 +49,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec ghostty 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -200,6 +200,9 @@ bindsym $mod+Shift+s exec "flameshot gui"
 # Wallpaper
 exec_always --no-startup-id feh --bg-scale ~/Pictures/tomb.jpg
 
+# Lock Screen
+bindsym $mod+Shift+period exec betterlockscreen -l
+
 # Compositor 
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
@@ -209,3 +212,6 @@ exec --no-startup-id dunst
 # Unclutter - hide mouse when idle
 exec --no-startup-id unclutter -idle 3
 
+# Cycle Workspaces 
+bindsym $mod+o workspace next
+bindsym $mod+i workspace prev
