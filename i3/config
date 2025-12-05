@@ -207,10 +207,13 @@ bindsym $mod+Shift+period exec betterlockscreen -l
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # Notification Daemon
-exec --no-startup-id dunst
+exec_always --no-startup-id dunst
+
 
 # Unclutter - hide mouse when idle
 exec --no-startup-id unclutter -idle 3
+
+exec_always --no-startup-id redshift -l 37.840935:144.946457
 
 # Cycle Workspaces 
 bindsym $mod+o workspace next
