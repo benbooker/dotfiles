@@ -18,7 +18,7 @@ require("lazy").setup("plugins")
 
 -- Set theme
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox-material]])
+vim.cmd([[colorscheme gruvbox]])
 
 -- General settings
 vim.opt.clipboard = 'unnamedplus'
