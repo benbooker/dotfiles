@@ -44,11 +44,28 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Sync/org/")
+
+(setq +latex-viewers '(pdf-tools))
+
+(after! tex
+  (setq TeX-PDF-mode t
+        TeX-view-program-selection '((output-pdf "PDF Tools"))
+        TeX-source-correlate-method 'synctex
+        TeX-source-correlate-start-server t)
+
+  (add-hook 'TeX-after-compilation-finished-functions
+            #'TeX-revert-document-buffer))
+
+(add-to-list 'display-buffer-alist
+             '("\\.pdf\\'"
+               (display-buffer-in-direction)
+               (direction . right)
+               (window-width . 0.5)))
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -135,5 +152,3 @@
          "%?\n"
          :tree-type day
          :empty-lines 1)))
-
-
